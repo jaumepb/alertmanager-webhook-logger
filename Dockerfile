@@ -16,4 +16,3 @@ WORKDIR /logs
 RUN rm -rf /root/go/
 
 ENTRYPOINT ["/usr/local/bin/alertmanager-webhook-logger"]
-CMD ["-h"]
