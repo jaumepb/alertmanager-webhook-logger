@@ -2,7 +2,7 @@ ARG ALPINE_VERSION
 
 FROM alpine:${ALPINE_VERSION}
 
-RUN apk add -U --no-progress --no-cache --purge git go
+RUN apk add -U --no-progress --no-cache --purge git go \
      # Create directory to hold LOGGS.
  && mkdir /logs \
  && chmod a+rw /logs
