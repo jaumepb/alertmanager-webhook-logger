@@ -8,12 +8,12 @@ RUN apk add -U --no-progress --no-cache --purge git go \
  && chmod a+rw /logs
 
 RUN go get -u github.com/tomtom-international/alertmanager-webhook-logger
-RUN cd /root/go/src/github.com/tomtom-international/alertmanager-webhook-logger
+WORKDIR /root/go/src/github.com/tomtom-international/alertmanager-webhook-logger
 RUN go build
 RUN mv /root/go/src/github.com/tomtom-international/alertmanager-webhook-logger/alertmanager-webhook-logger /usr/local/bin/
-RUN rm -rf /root/go/
 
 WORKDIR /logs
+RUN rm -rf /root/go/
 
 ENTRYPOINT ["/usr/local/bin/alertmanager-webhook-logger"]
 CMD ["-h"]
