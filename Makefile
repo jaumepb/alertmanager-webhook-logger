@@ -26,7 +26,7 @@ docker-build:
 
 docker-test:
 	docker image inspect $(DOCKER_ORGANIZATION)/$(DOCKER_IMAGE)
-	docker run --rm $(DOCKER_ORGANIZATION)/$(DOCKER_IMAGE) --version
+	docker run --rm $(DOCKER_ORGANIZATION)/$(DOCKER_IMAGE) -h
 
 docker-save:
 	docker image inspect $(DOCKER_ORGANIZATION)/$(DOCKER_IMAGE) > /dev/null 2>&1
